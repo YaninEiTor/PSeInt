@@ -1,0 +1,97 @@
+// CaC Inicial
+//Comisión 22922
+// Ejercicio de práctica: Piedra, Papel o Tijeras
+// @uthor: Yanina Torres
+//Reglas del juego:
+//Piedra mata Tijeras
+//Papel mata Piedra
+//Tijeras mata Papel
+
+Proceso mi_primer_juego
+	//Definición e inicialización de variables
+	Definir opcionC, opcionU como caracter; //estas son las opciones que genera aleatoriamente la computadora.
+	Definir ganaC, ganaU como entero; //puntaje de la máquina y puntaje del usuario
+	Definir continuar como entero; //indica si el usuario quiere seguir jugando
+	Definir nombreHumano como caracter; //Nombre del jugador
+		
+	Dimension opcionC[3]; //Aquí se creó un arreglo para la selección aleatoria de la máquina
+	opcionC(1) <- "Piedra";
+	opcionC(2) <- "Papel";
+	opcionC(3) <- "Tijeras";
+	
+	Dimension opcionU[3]; //Aquí se creó un arreglo para la selección del usuario
+	opcionU(1) <- "Piedra";
+	opcionU(2) <- "Papel";
+	opcionU(3) <- "Tijeras";
+	
+
+	Escribir "##################################"; //Bienvenida
+	Escribir "¡Hola, Humano! Soy tu computadora y"; //Aquí están cortadas las oraciones debido a que no entra en la ventana si está en su tamaño normal
+	Escribir "estoy contenta que estés aquí.";
+	Escribir "Te desafío en un torneo de Piedra,"; 
+	Escribir "Papel y Tijeras.";
+	Escribir "##################################";
+	Escribir "Antes que nada, ¿me podés decir tu nombre?";
+	Leer nombreHumano;
+	Escribir "¡Bienvenido/a ", nombreHumano, " !";
+	Escribir "¿Aceptás? Escribí 1 en caso afirmativo";
+	Escribir "o 0 en caso que no aceptes"; //Se pregunta si acepta desafío
+		Leer continuar;
+		Mientras continuar == 1 Hacer	
+			Escribir "Te invito a que selecciones Piedra, Papel o Tijeras. No olvides empezar la palabra con mayúsculas. ¡Escribí tu selección!";
+			Leer opcionU(3); //Lee lo que escribió el usuario
+		Si opcionU(3) == opcionC[azar(3)+1] Entonces
+				Escribir "¡Hemos empatado ", nombreHumano,"! ¡Intentemos de nuevo!"; //realiza la comparación para determinar si hubo empate
+			Sino
+				Segun opcionU(3) Hacer //los casos posibles del juego
+				"Piedra": //Piedra
+					Si opcionC(3) == ("Papel") Entonces//Papel
+					Escribir "Elegiste piedra y yo elegí papel. ¡Te gané! ", nombreHumano;
+					ganaC <- ganaC + 1; //puntaje acumulado
+					Escribir "El puntaje es: computadora ", ganaC, ", " nombreHumano," ", ganaU;
+				Sino //Tijeras
+					Escribir "Elegiste Piedra y yo elegí Tijeras. ¡Me ganaste ", nombreHumano,"!";
+					ganaU <- ganaU + 1; //puntaje acumulado
+					Escribir "El puntaje es: computadora ", ganaC, ", " nombreHumano, " ",ganaU;
+				FinSi
+				"Papel": //Papel
+				 Si opcionC(3) == ("Piedra") Entonces//Piedra
+					 Escribir "Elegiste papel y yo elegí piedra. ¡Me ganaste ", nombreHumano,"!";
+					 ganaU <- ganaU + 1; //puntaje acumulado
+					 Escribir "El puntaje es: computadora ", ganaC, ", " nombreHumano, " ",ganaU;
+				 Sino //Tijeras
+					 Escribir "Elegiste Papel y yo elegí Tijeras. ¡Te gané ", nombreHumano, "!";
+					 ganaC <- ganaC + 1; //puntaje acumulado
+					 Escribir "El puntaje es: computadora ", ganaC, ", " nombreHumano," ", ganaU;
+				 FinSi
+				 
+				"Tijeras":
+				 Si opcionC(3) == ("Piedra") Entonces//Piedra
+					 Escribir "Elegiste tijeras y yo elegí piedra. ¡Te gané! ", nombreHumano, "!";
+					 ganaC <- ganaC + 1; //puntaje acumulado
+					 Escribir "El puntaje es: computadora ", ganaC, ", " nombreHumano," ", ganaU;
+				 Sino //Papel
+					 Escribir "Elegiste Tijeras y yo elegí Papel. ¡Me ganaste ", nombreHumano, "!";
+					 ganaU <- ganaU + 1; //puntaje acumulado
+					 Escribir "El puntaje es: computadora ", ganaC, ", " nombreHumano," ", ganaU; //puntaje acumulado
+				 FinSi
+			 
+		 FinSegun
+		
+	 FinSi
+	 Escribir "¿Querés continuar jugando? Escribí 1 en caso afirmativo o 0 para salir";
+	 Leer continuar; //Aquí me falta validar la respuesta
+ 
+ Escribir "El puntaje final fue: computadora ", ganaC " y ", nombreHumano, " ", ganaU; //Puntaje final del juego y respuestas posibles
+ Si ganaC == ganaU Entonces
+	 Escribir "Hemos empatado, ", nombreHumano, " ¡Te espero pronto para la revancha!";
+	 Si ganaC < ganaU Entonces
+		 Escribir "¡Felicitaciones ", nombreHumano, "! Te espero pronto para la revancha!";
+		 Si ganaC > ganaU Entonces
+			 Escribir "¡Te he ganado ", nombreHumano, "! ¿A que no te lo esperabas?";
+			 Escribir "¡Te espero pronto para la revancha!";
+		 FinSi
+	 FinSi
+ FinSi
+ FinMientras
+FinAlgoritmo
