@@ -1,4 +1,5 @@
-// CaC Inicial
+
+/ CaC Inicial
 //Comisión 22922
 // Ejercicio de práctica: Piedra, Papel o Tijeras
 // @uthor: Yanina Torres
@@ -86,23 +87,21 @@ Algoritmo Piedra_Papel_Tijeras
 
 			
 	Si continuar == 0 Entonces
-		Escribir "El puntaje final fue: computadora ", ganaC " y ", nombreHumano, " ", ganaU, " ¡Hasta pronto, que tengas un buen día!"; //Puntaje final del juego y respuestas posibles
-			Si ganaC == ganaU Entonces
-				Escribir "Hemos empatado, ", nombreHumano, " ¡Te espero pronto para la revancha!";
-				Si ganaC < ganaU Entonces
-					Escribir "¡Felicitaciones ", nombreHumano, "! Te espero pronto para la revancha!";
-					Si ganaC > ganaU Entonces
-						Escribir "¡Te he ganado ", nombreHumano, "! ¿A que no te lo esperabas?";
-						Escribir "¡Te espero pronto para la revancha!";
-					FinSi
-				FinSi
+		Si ganaC == ganaU Entonces
+			Escribir nombreHumano," tu puntaje fue ", ganaU, " y el mío fue ", ganaC; 
+			Escribir "Hemos empatado, ", nombreHumano, " ¡Te espero pronto para la revancha!";
+		FinSi
+		
+		Si ganaC < ganaU Entonces
+			Escribir nombreHumano," tu puntaje fue ", ganaU, " y el mío fue ", ganaC; 
+			Escribir "¡Felicitaciones ", nombreHumano, "! Te espero pronto para la revancha!";
 			FinSi
-			Escribir "¡Terminamos por hoy! ¡Que tengas un lindo día, ", nombreHumano, "!";
+			
+			Si ganaC > ganaU Entonces
+				Escribir nombreHumano," tu puntaje fue ", ganaU, " y el mío fue ", ganaC; 
+				Escribir "¡Te he ganado ", nombreHumano, "! ¿A que no te lo esperabas?";
+				Escribir "¡Te espero pronto para la revancha!";
+			FinSi
 	FinSi
-	
-				
-	
-	
-	
 	
 FinAlgoritmo
