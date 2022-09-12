@@ -1,0 +1,47 @@
+//CaC Inicial
+//Comisión 22922
+//@Author: Yanina Torres
+
+Algoritmo Panaderia
+	//Definición de variables
+	Definir kilos_de_pan como real;
+	Definir presupuesto_total como real;
+	Definir precio_harina, precio_agua, precio_sal, precio_levadura como real;
+	Definir total_harina, total_agua, total_sal, total_levadura como real;
+	Definir peso_harina, peso_sal, litro_agua, peso_levadura como real;
+	
+	//Ingreso de datos por parte del usuario	
+	Escribir "##### Panadería El Lucero #####";
+	Escribir "Bienvenido, Administrador";
+	Escribir "Por favor, ingresá el precio del kilo de harina (los centavos separados con punto)";
+	Leer precio_harina;
+	Escribir "Por favor, ingresá el precio del litro de agua (los centavos separados con punto)";
+	Leer precio_agua;
+	Escribir "Por favor, ingresá el precio del kilo de sal (los centavos separados con punto)";
+	Leer precio_sal;
+	Escribir "Por favor, ingresá el precio del kilo de levadura (los centavos separados con punto)";
+	Leer precio_levadura;
+	Escribir "Por favor, ingresá la cantidad de kilos de pan que vas a producir (los gramos separados con punto)";
+	Leer kilos_de_pan;
+	
+	peso_harina = kilos_de_pan; // Determinación de cantidades de ingredientes a partir de los kilos de pan a producir
+	litro_agua = peso_harina * 0.60;
+	peso_sal = peso_harina * 0.02;
+	peso_levadura = peso_harina * 0.02;
+	
+	total_harina= kilos_de_pan * precio_harina; // Determinación de costos a partir de los kilos de pan a producir
+	total_agua = litro_agua * precio_agua;
+	total_sal = peso_sal * precio_sal;
+	total_levadura = peso_levadura * precio_levadura;
+	presupuesto_total = total_harina + total_agua + total_sal + total_levadura;
+	
+	//Devolución del resultado al usuario
+	Escribir "La cantidad de harina necesaria es de ", peso_harina, " kilos, y su costo es de $", total_harina;
+	Escribir "La cantidad de agua necesaria es de ", litro_agua, " litros, y su costo es de $", total_agua;
+	Escribir "La cantidad de sal necesaria es de ", peso_sal, " kilos, y su costo es de $", total_sal;
+	Escribir "La cantidad de levadura necesaria es de ", peso_levadura, " kilos y su costo es de $", total_levadura;
+	Escribir "El presupuesto total es de $", presupuesto_total;
+	Escribir "¡Que tengas un buen día!";
+	
+	
+FinAlgoritmo
